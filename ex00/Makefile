@@ -6,16 +6,16 @@
 #    By: jdong <jdong@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2026/05/20 18:34:22 by jdong         #+#    #+#                  #
-#    Updated: 2026/06/26 13:54:27 by jingyandong   ########   odam.nl          #
+#    Updated: 2026/07/08 17:04:59 by jingyandong   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = run
 
-HEADER =  ClapTrap.hpp
+HEADER =  Dog.hpp Cat.hpp Animal.hpp WrongAnimal.hpp WrongCat.hpp
 
-SRC =  ClapTrap.cpp main.cpp
+SRC =  Dog.cpp Cat.cpp Animal.cpp main.cpp WrongAnimal.cpp WrongCat.cpp
 OBJ = $(SRC:%.cpp=%.o)
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
