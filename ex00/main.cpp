@@ -30,6 +30,10 @@ int main(void)
 	wcat->makeSound();
 	wmeta->makeSound();
 
+	//const Animal* animalptr = new Animal();
+	//Animal animal_inst;
+	// delete animalptr;
+
 	delete meta;
 	delete i;
 	delete j;
