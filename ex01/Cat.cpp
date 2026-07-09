@@ -6,20 +6,21 @@ Cat::Cat(void)
 	: Animal("Cat")
 {
 	std::cout << GREEN << "Cat default constructor called." << RESET << std::endl;
-	_brain = new Brain();
+	this->_brain = new Brain();
 }
 
 Cat::Cat(const std::string name)
 	: Animal(name)
 {
 	std::cout << GREEN << "Cat constructor called." << RESET << std::endl;
+	this->_brain = new Brain();
 }
 
 Cat::Cat(const Cat& obj)
+	: Animal(obj.getType())
 {
 	std::cout << GREEN << "Cat copy constructor called. But its brain is its owns" << RESET << std::endl;
-	this->_type = obj.getType();
-	//this->_brain = new Brain(obj.getBrain());
+	*this = obj;
 }
 
 Cat& Cat::operator=(const Cat& obj)
@@ -28,7 +29,7 @@ Cat& Cat::operator=(const Cat& obj)
 	if (this != &obj)
 	{
 		this->_type = obj.getType();
-		//this->_brain = obj.ge
+		this->_brain = new Brain(*(obj.getBrain()));
 	}
 	return (*this);
 }
@@ -44,8 +45,8 @@ void Cat::makeSound(void) const
 	std::cout << this->_type << ": meow meow!" << std::endl;
 }
 
-//Brain* Cat::getBrain(void) const
-//{
-//	this->_brain->getIdeasPtr(0);
+const Brain* Cat::getBrain(void) const
+{
+	return (this->_brain);
+}
 
-//}

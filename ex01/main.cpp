@@ -3,36 +3,44 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 
 int main(void)
 {
-	const Animal* meta = new Animal();
-	const Animal* i = new Dog();
-	const Animal* j = new Cat();
+	{
+		std::cout << "-----test for Constructor and Brain address-------" << std::endl;
+		const Dog* dog = new Dog();
+		std::cout << "\n";
+		const Cat* cat = new Cat();
+		std::cout << "\n";
+		const Animal* dog_copy = new Dog(*dog);
+		std::cout << "\n";
+		Cat cat_op;
+		cat_op = *cat;
+		std::cout << "\n";
+		std::cout << "dog's brain address is: " << dog->getBrain() << std::endl;
+		std::cout << "dog_copy brain address is: " << dog_copy->getBrain() << std::endl;
+		std::cout << "cat's brain address is: " << cat->getBrain() << std::endl;
+		std::cout << "cat_op's brain address is: " << cat_op.getBrain() << std::endl;
+		std::cout << "\n";
 
+		delete dog;
+		delete cat;
+		delete dog_copy;
+	}
+	{
+		std::cout << "\n-----test for array and virtual functions-------" << std::endl;	
+		const Animal* animal_arr[6];	
 
-	std::cout << "i: " << i->getType() << " " << std::endl;
-	std::cout << "j: " << j->getType() << " " << std::endl;
-	std::cout << "meta: " << meta->getType() << " " << std::endl;
+		for (int i = 0; i < 3; i++)
+			animal_arr[i] = new Dog();
 
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
+		for (int i = 3; i < 6; i++)
+			animal_arr[i] = new Cat();
 
-	const WrongAnimal* wmeta = new WrongAnimal();
-	const WrongAnimal* wcat = new WrongCat();
+		for (int i = 0; i < 6; i++)
+			animal_arr[i]->makeSound();
 
-	std::cout << "wcat: " << wcat->getType() << " " << std::endl;
-	std::cout << "wmeta: " << wmeta->getType() << " " << std::endl;
-
-	wcat->makeSound();
-	wmeta->makeSound();
-
-	delete meta;
-	delete i;
-	delete j;
-	delete wmeta;
-	delete wcat;
+		for (int i = 0; i < 6; i++)
+			delete animal_arr[i];
+	}
 }

@@ -4,29 +4,29 @@
 Animal::Animal(void)
 	:_type("unknown")
 {
-	std::cout << GREEN << "Default  constructor called" << RESET << std::endl;
+	std::cout << GREEN << "Animal Default constructor called" << RESET << std::endl;
 }
 
 Animal::Animal(const std::string type)
 	:_type(type)
 {
-	std::cout << GREEN << "Constructor called" << RESET << std::endl;
+	std::cout << GREEN << "Animal Constructor called" << RESET << std::endl;
 }
 Animal::Animal(const Animal& other)
 {
-	std::cout << GREEN << "Copy constructor called" << RESET << std::endl;
+	std::cout << GREEN << "Animal Copy constructor called" << RESET << std::endl;
 	*this = other;
 }
 Animal& Animal::operator=(const Animal& oth)
 {
-	std::cout << GREEN << "Copy operater called" << RESET << std::endl;
+	std::cout << GREEN << "Animal Copy operater called" << RESET << std::endl;
 	if (this != &oth)
 		this->_type = oth.getType();
 	return *this;
 }
 Animal::~Animal(void)
 {
-	std::cout << RED << "Desctructor called." << RESET << std::endl;
+	std::cout << RED << "Animal Desctructor called." << RESET << std::endl;
 }
 
 const std::string	Animal::getType() const

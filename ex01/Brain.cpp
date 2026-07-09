@@ -4,17 +4,17 @@
 
 Brain::Brain(void)
 {
-	std::cout << GREEN << "Brain default  constructor called" << RESET << std::endl;
+	std::cout << GREEN << "Brain default constructor called" << RESET << std::endl;
 }
 
-Brain::Brain(const std::string* ideas)
-{
-	std::cout << GREEN << "Brain constructor called" << RESET << std::endl;
-	for (int i = 0; i < 100; i++)
-	{
-		this->_ideas[i] = "copied idea: " + ideas[i];
-	}
-}
+//Brain::Brain(const std::string* ideas)
+//{
+//	std::cout << GREEN << "Brain constructor called" << RESET << std::endl;
+//	for (int i = 0; i < 100; i++)
+//	{
+//		this->_ideas[i] = "copied idea: " + ideas[i];
+//	}
+//}
 
 Brain::Brain(const Brain& obj)
 {
@@ -62,7 +62,7 @@ void Brain::setIdea(size_t i, const std::string& idea)
 	return ;
 }
 
-const std::string* Brain::getIdeasPt(size_t i) const
+const std::string* Brain::getIdeasPt() const
 {
-	return (&(this->_ideas[i]));
+	return (this->_ideas);
 }

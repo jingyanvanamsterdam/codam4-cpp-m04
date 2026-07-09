@@ -12,14 +12,14 @@ class Brain
 {
 	public:
 		Brain(void);
-		Brain(const std::string* ideas);
+		//Brain(const std::string* ideas);
 		Brain(const Brain& obj);
 		Brain& operator=(const Brain& obj);
 		~Brain(void);
 
 		const std::string& getIdea(size_t i) const;
 		void setIdea(size_t i, const std::string& idea);
-		const std::string* getIdeasPt(size_t i) const;
+		const std::string* getIdeasPt() const;
 
 	private:
 		std::string _ideas[100];

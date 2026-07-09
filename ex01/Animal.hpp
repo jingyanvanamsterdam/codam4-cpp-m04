@@ -2,6 +2,7 @@
 #define ANIMAL_HPP
 
 #include <string>
+#include "Brain.hpp"
 
 # define GREEN	"\033[32m"
 # define RED	"\033[31m"
@@ -17,8 +18,9 @@ class Animal
 		virtual ~Animal(void);
 		
 		const std::string	getType() const;
-		
+
 		virtual void makeSound() const;
+		virtual const Brain* getBrain() const = 0;
 	
 	protected:
 		std::string _type;
