@@ -7,7 +7,7 @@ Animal::Animal(void)
 	std::cout << GREEN << "Default  constructor called" << RESET << std::endl;
 }
 
-Animal::Animal(const std::string type)
+Animal::Animal(const std::string& type)
 	:_type(type)
 {
 	std::cout << GREEN << "Constructor called" << RESET << std::endl;
@@ -29,7 +29,7 @@ Animal::~Animal(void)
 	std::cout << RED << "Desctructor called." << RESET << std::endl;
 }
 
-const std::string	Animal::getType() const
+const std::string&	Animal::getType() const
 {
 	return (this->_type);
 }
