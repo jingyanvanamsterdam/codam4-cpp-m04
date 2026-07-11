@@ -2,7 +2,7 @@
 #include <iostream>
 
 Ice::Ice(void)
-	: AMateria("Ice")
+	: AMateria("ice")
 {
 	std::cout << GREEN << "Ice default constructor called." << RESET << std::endl;
 }
@@ -37,5 +37,5 @@ AMateria* Ice::clone(void) const
 
 void Ice::use(ICharacter& target)
 {
-	std::cout << "Ice: \"* shoots an ice bolt at " << target.getName() << " *\"" << std::endl;
+	std::cout << " shoots an ice bolt at " << target.getName() << "." << std::endl;
 }

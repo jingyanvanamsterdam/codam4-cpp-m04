@@ -9,6 +9,8 @@ Character::Character(const std::string& name)
 	: _name(name)
 {
 	std::cout << GREEN << "Character constructor called" << RESET << std::endl;
+	for (int i = 0; i < 4; i++)
+		this->_materiaSlot[i] = NULL;
 }
 
 Character::Character(const Character& obj)
@@ -25,9 +27,16 @@ Character& Character::operator=(const Character& obj)
 	if (this != &obj)
 	{
 		this->_name = obj.getName();
-		for (int i = 0; i < 4 && obj._materiaSlot[i] != NULL; i++)
+		int i = 0;
+		while (i < 4 && obj._materiaSlot[i] != NULL)
 		{
 			this->_materiaSlot[i] = obj._materiaSlot[i]->clone();
+			i++;
+		}
+		while (i < 4)
+		{
+			this->_materiaSlot[i] = NULL;
+			i++;
 		}
 	}
 	return (*this);
@@ -36,9 +45,12 @@ Character& Character::operator=(const Character& obj)
 Character::~Character(void)
 {
 	std::cout << RED << "Character destructor called" << RESET << std::endl;
-	// Delete materias
-	for (int i = 0; this->_materiaSlot[i] != NULL && i < 4; i++)
-		delete this->_materiaSlot[i];
+
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_materiaSlot[i] != NULL)
+			delete this->_materiaSlot[i];
+	}
 }
 
 const std::string& Character::getName(void) const
@@ -54,15 +66,17 @@ void Character::equip(AMateria* m)
 	if (i == 4)
 		return;
 	this->_materiaSlot[i] = m;
-	std::cout << "A materia is equiped to " << this->_name << "." << std::endl;
+	std::cout << m->getType() << " is equiped to " << this->_name << "." << std::endl;
 }
 
 void Character::unequip(int idx)
 {
 	if (idx >= 4 || this->_materiaSlot[idx] == NULL)
 		return;
+	const std::string& type = this->_materiaSlot[idx]->getType();
+	std::cout << this->_name << "'s " << type << " at slot " << idx << " has been unequiped." << std::endl;
+	//std::cout << RED << "Remeber to delete the AMateria if it is not being equiped by others anymore." << RESET << std::endl;
 	this->_materiaSlot[idx] = NULL;
-	std::cout << "Materia at slot " << idx << " has been unequiped." << std::endl;
 }
 
 void Character::use(int idx, ICharacter& target)
@@ -70,5 +84,6 @@ void Character::use(int idx, ICharacter& target)
 	if (idx >= 4 || this->_materiaSlot[idx] == NULL)
 		return;
 
+	std::cout << this->_name;
 	this->_materiaSlot[idx]->use(target);
 }

@@ -33,3 +33,7 @@ const std::string&	AMateria::getType() const
 	return (this->_type);
 }
 
+void AMateria::use(ICharacter& target)
+{
+	std::cout << "AMateria is being used at " << target.getName() << "." << std::endl;
+}

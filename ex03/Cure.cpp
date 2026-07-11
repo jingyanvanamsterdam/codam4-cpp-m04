@@ -2,7 +2,7 @@
 #include <iostream>
 
 Cure::Cure(void)
-	: AMateria("Cure")
+	: AMateria("cure")
 {
 	std::cout << GREEN << "Cure default constructor called." << RESET << std::endl;
 }
@@ -10,7 +10,7 @@ Cure::Cure(void)
 Cure::Cure(const Cure& obj)
 	: AMateria(obj.getType())
 {
-	std::cout << GREEN << "Cure copy constructor called. But its brain is its owns" << RESET << std::endl;
+	std::cout << GREEN << "Cure copy constructor called." << RESET << std::endl;
 	*this = obj;
 }
 
@@ -37,5 +37,5 @@ AMateria* Cure::clone(void) const
 
 void Cure::use(ICharacter& target)
 {
-	std::cout << "Cure: \"* heals " << target.getName() << "\'s wounds *\"" << std::endl;
+	std::cout << " heals " << target.getName() << "\'s wounds." << std::endl;
 }

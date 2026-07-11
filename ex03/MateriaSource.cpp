@@ -4,6 +4,8 @@
 MateriaSource::MateriaSource(void)
 {
 	std::cout << GREEN << "MateriaSource default constructor called." << RESET << std::endl;
+	for (int i = 0; i < 4; i++)
+		this->_materiaSlot[i] = NULL;
 }
 
 MateriaSource::MateriaSource(const MateriaSource& obj)
@@ -17,9 +19,16 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& obj)
 	std::cout << GREEN << "MateriaSource copy operater called" << RESET << std::endl;
 	if (this != &obj)
 	{
-		for (int i = 0; i < 4 && obj._materiaSlot[i] != NULL; i++)
+		int i = 0;
+		while (i < 4 && obj._materiaSlot[i] != NULL)
 		{
 			this->_materiaSlot[i] = obj._materiaSlot[i]->clone();
+			i++;
+		}
+		while (i < 4)
+		{
+			this->_materiaSlot[i] = NULL;
+			i++;
 		}
 	}
 	return (*this);
@@ -40,17 +49,19 @@ void MateriaSource::learnMateria(AMateria* m)
 	if (i == 4)
 		return;
 	this->_materiaSlot[i] = m;
-	std::cout << "A materia is added." << std::endl;
+	std::cout << m->getType() << " is added to materia source." << std::endl;
 }
 
 AMateria* MateriaSource::createMateria(const std::string& type)
 {
 	AMateria* m;
+	
 	for (int i = 0; i < 4 && this->_materiaSlot[i] != NULL; i++)
 	{
 		if (this->_materiaSlot[i]->getType() == type)
 		{
 			m = this->_materiaSlot[i]->clone();
+			std::cout << type << " is being produced by materia source." << std::endl;
 			return m;
 		}
 	}
