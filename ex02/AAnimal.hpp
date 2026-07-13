@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Animal.hpp                                         :+:    :+:            */
+/*   AAnimal.hpp                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jdong <jdong@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2026/07/13 16:41:00 by jdong         #+#    #+#                 */
-/*   Updated: 2026/07/13 16:41:01 by jdong         ########   odam.nl         */
+/*   Created: 2026/07/13 16:43:25 by jdong         #+#    #+#                 */
+/*   Updated: 2026/07/13 16:43:26 by jdong         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef AANIMAL_HPP
+#define AANIMAL_HPP
 
 #include <string>
+#include "Brain.hpp"
 
 # define GREEN	"\033[32m"
 # define RED	"\033[31m"
 # define RESET	"\033[0m"
 
-class Animal
+class AAnimal
 {
 	public:
-		Animal(void);
-		Animal(const std::string& type);
-		Animal(const Animal& other);
-		Animal& operator=(const Animal& oth);
-
+		AAnimal(void);
+		AAnimal(const std::string& type);
+		AAnimal(const AAnimal& other);
+		AAnimal& operator=(const AAnimal& oth);
+		virtual ~AAnimal(void) = 0;
+		
 		const std::string&	getType() const;
 
-		virtual ~Animal(void);
 		virtual void makeSound() const;
+		virtual Brain* getBrain() const = 0;
 	
 	protected:
 		std::string _type;

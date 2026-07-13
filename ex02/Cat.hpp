@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Cat.hpp                                            :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jdong <jdong@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/07/13 16:43:58 by jdong         #+#    #+#                 */
+/*   Updated: 2026/07/13 16:43:59 by jdong         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CAT_HPP
 #define CAT_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 #include <string>
 
-class Cat : public Animal
+class Cat : public AAnimal
 {
 	public:
 		Cat(void);
@@ -15,7 +27,7 @@ class Cat : public Animal
 		~Cat(void);
 		
 		void makeSound(void) const override;
-		const Brain* getBrain(void) const override;
+		Brain* getBrain(void) const override;
 	
 	private:
 		Brain* _brain;

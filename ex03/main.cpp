@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   main.cpp                                           :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jdong <jdong@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/07/13 16:45:51 by jdong         #+#    #+#                 */
+/*   Updated: 2026/07/13 16:45:52 by jdong         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <string>
-
 #include "AMateria.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"

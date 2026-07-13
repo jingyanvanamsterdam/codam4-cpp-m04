@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Animal.hpp                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jdong <jdong@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/07/13 16:42:14 by jdong         #+#    #+#                 */
+/*   Updated: 2026/07/13 16:42:15 by jdong         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
 
@@ -20,7 +32,7 @@ class Animal
 		const std::string&	getType() const;
 
 		virtual void makeSound() const;
-		virtual const Brain* getBrain() const = 0;
+		virtual Brain* getBrain() const = 0;
 	
 	protected:
 		std::string _type;

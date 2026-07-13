@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Brain.hpp                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jdong <jdong@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/07/13 16:43:41 by jdong         #+#    #+#                 */
+/*   Updated: 2026/07/13 16:43:42 by jdong         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BRAIN_HPP
 #define BRAIN_HPP
 
@@ -12,7 +24,6 @@ class Brain
 {
 	public:
 		Brain(void);
-		//Brain(const std::string* ideas);
 		Brain(const Brain& obj);
 		Brain& operator=(const Brain& obj);
 		~Brain(void);

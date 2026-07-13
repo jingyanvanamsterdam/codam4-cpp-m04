@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   MateriaSource.hpp                                  :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jdong <jdong@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/07/13 16:46:08 by jdong         #+#    #+#                 */
+/*   Updated: 2026/07/13 16:46:09 by jdong         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MATERIASOURCE_HPP
 #define MATERIASOURCE_HPP
 
@@ -13,8 +25,8 @@ class MateriaSource : public IMateriaSource
 		MateriaSource& operator=(const MateriaSource& obj);
 		
 		~MateriaSource(void);
-		void learnMateria(AMateria* m);
-		AMateria* createMateria(const std::string& type);
+		void learnMateria(AMateria* m) override;
+		AMateria* createMateria(const std::string& type) override;
 	
 	private:
 		AMateria* _materiaSlot[4];

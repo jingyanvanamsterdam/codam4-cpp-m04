@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Cat.cpp                                            :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jdong <jdong@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/07/13 16:42:31 by jdong         #+#    #+#                 */
+/*   Updated: 2026/07/13 16:42:32 by jdong         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Cat.hpp"
 #include "Brain.hpp"
 #include <iostream>
@@ -17,7 +29,7 @@ Cat::Cat(const std::string name)
 }
 
 Cat::Cat(const Cat& obj)
-	: Animal(obj.getType())
+	: Animal(obj.getType()), _brain(NULL)
 {
 	std::cout << GREEN << "Cat copy constructor called. But its brain is its owns" << RESET << std::endl;
 	*this = obj;
@@ -29,7 +41,10 @@ Cat& Cat::operator=(const Cat& obj)
 	if (this != &obj)
 	{
 		this->_type = obj.getType();
-		this->_brain = new Brain(*(obj.getBrain()));
+		if (this->_brain == NULL)
+			this->_brain = new Brain(*(obj.getBrain()));
+		else
+			*(this->_brain) = *(obj.getBrain());
 	}
 	return (*this);
 }
@@ -45,7 +60,7 @@ void Cat::makeSound(void) const
 	std::cout << this->_type << ": meow meow!" << std::endl;
 }
 
-const Brain* Cat::getBrain(void) const
+Brain* Cat::getBrain(void) const
 {
 	return (this->_brain);
 }

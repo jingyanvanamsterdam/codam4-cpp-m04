@@ -1,3 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Character.cpp                                      :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jdong <jdong@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/07/13 16:44:46 by jdong         #+#    #+#                 */
+/*   Updated: 2026/07/13 16:44:47 by jdong         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
+
+
 #include "Character.hpp"
 #include "ICharacter.hpp"
 #include <iostream>
@@ -18,6 +32,9 @@ Character::Character(const Character& obj)
 {
 	std::cout << GREEN << "Character copy constructor called" << RESET << std::endl;
 
+	for (int i = 0; i < 4; i++)
+		this->_materiaSlot[i] = NULL;
+
 	*this = obj;
 }
 
@@ -31,11 +48,6 @@ Character& Character::operator=(const Character& obj)
 		while (i < 4 && obj._materiaSlot[i] != NULL)
 		{
 			this->_materiaSlot[i] = obj._materiaSlot[i]->clone();
-			i++;
-		}
-		while (i < 4)
-		{
-			this->_materiaSlot[i] = NULL;
 			i++;
 		}
 	}

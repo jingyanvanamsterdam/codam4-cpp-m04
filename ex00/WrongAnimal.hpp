@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   WrongAnimal.hpp                                    :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jdong <jdong@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/07/13 16:41:48 by jdong         #+#    #+#                 */
+/*   Updated: 2026/07/13 16:41:49 by jdong         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef WRONGANIMAL_HPP
 #define WRONGANIMAL_HPP
 
@@ -17,7 +29,6 @@ class WrongAnimal
 		~WrongAnimal(void);
 		
 		const std::string	getType() const;
-		
 		void makeSound() const;
 	
 	protected:

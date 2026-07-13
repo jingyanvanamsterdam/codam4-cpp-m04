@@ -6,16 +6,16 @@
 #    By: jdong <jdong@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2026/05/20 18:34:22 by jdong         #+#    #+#                  #
-#    Updated: 2026/07/09 18:08:30 by jingyandong   ########   odam.nl          #
+#    Updated: 2026/07/13 16:28:41 by jdong         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = run
 
-HEADER =  Dog.hpp Cat.hpp Animal.hpp Brain.hpp
+HEADER =  Dog.hpp Cat.hpp AAnimal.hpp Brain.hpp
 
-SRC =  Dog.cpp Cat.cpp Animal.cpp main.cpp Brain.cpp
+SRC =  Dog.cpp Cat.cpp AAnimal.cpp main.cpp Brain.cpp
 OBJ = $(SRC:%.cpp=%.o)
 
 FLAGS = -Wall -Wextra -Werror -std=c++11

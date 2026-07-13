@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Brain.cpp                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jdong <jdong@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/07/13 16:43:36 by jdong         #+#    #+#                 */
+/*   Updated: 2026/07/13 16:43:37 by jdong         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Brain.hpp"
 #include <iostream>
 #include <string>
@@ -6,15 +18,6 @@ Brain::Brain(void)
 {
 	std::cout << GREEN << "Brain default constructor called" << RESET << std::endl;
 }
-
-//Brain::Brain(const std::string* ideas)
-//{
-//	std::cout << GREEN << "Brain constructor called" << RESET << std::endl;
-//	for (int i = 0; i < 100; i++)
-//	{
-//		this->_ideas[i] = "copied idea: " + ideas[i];
-//	}
-//}
 
 Brain::Brain(const Brain& obj)
 {

@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Character.hpp                                      :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jdong <jdong@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/07/13 16:44:52 by jdong         #+#    #+#                 */
+/*   Updated: 2026/07/13 16:44:53 by jdong         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 
@@ -14,10 +27,10 @@ class Character : public ICharacter
 
 		~Character(void);
 
-		const std::string& getName(void) const;
-		void equip(AMateria* m);
-		void unequip(int idx);
-		void use(int idx, ICharacter& target);
+		const std::string& getName(void) const override;
+		void equip(AMateria* m) override;
+		void unequip(int idx) override;
+		void use(int idx, ICharacter& target) override;
 
 	private:
 		Character(void);

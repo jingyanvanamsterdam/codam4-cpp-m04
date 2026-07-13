@@ -1,11 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Dog.hpp                                            :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jdong <jdong@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/07/13 16:44:14 by jdong         #+#    #+#                 */
+/*   Updated: 2026/07/13 16:44:15 by jdong         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #ifndef DOG_HPP
 #define DOG_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 #include <string>
 
-class Dog : public Animal
+class Dog : public AAnimal
 {
 	public:
 		Dog(void);
@@ -15,7 +28,7 @@ class Dog : public Animal
 		~Dog(void);
 		
 		void makeSound(void) const override;
-		const Brain* getBrain(void) const override;
+		Brain* getBrain(void) const override;
 	
 	private:
 		Brain* _brain;
